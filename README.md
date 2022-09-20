@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Auth App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple auth app where you can sign in/out and sign up and also update your name, email, and photo.
+A toy app in which I studied and applied the clean architecture for front-end apps with React.
 
-## Available Scripts
+Credits go to:
+- [RostislavDugin](https://github.com/RostislavDugin)
+  - [Repo](https://github.com/RostislavDugin/clean-architecture-react-typescript)
+  - [Medium Article](https://medium.com/@rostislavdugin/the-clean-architecture-using-react-and-typescript-a832662af803)
+  
+- Me :)
+  - For having patience to gain new skills ^_^
 
-In the project directory, you can run:
 
-### `npm start`
+Techonolgies:
+- React
+- Firebase
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Folder Structure 
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+┣ 📦public
+┃ ┣ 📜favicon.ico
+┃ ┣ 📜index.html
+┃ ┣ 📜logo192.png
+┃ ┣ 📜logo512.png
+┃ ┣ 📜manifest.json
+┃ ┗ 📜robots.txt
+┣ 📦src
+┃ ┣ 📂components
+┃ ┃ ┣ 📜AuthorizationRoute.jsx
+┃ ┃ ┣ 📜ProtectedRoute.jsx
+┃ ┃ ┗ 📜Spinner.jsx
+┃ ┣ 📂features
+┃ ┃ ┣ 📂auth
+┃ ┃ ┃ ┣ 📂UI
+┃ ┃ ┃ ┃ ┣ 📜SigninComponent.jsx
+┃ ┃ ┃ ┃ ┣ 📜SigninViewModel.js
+┃ ┃ ┃ ┃ ┣ 📜SignupComponent.jsx
+┃ ┃ ┃ ┃ ┗ 📜SignupViewModel.js
+┃ ┃ ┃ ┣ 📂data
+┃ ┃ ┃ ┃ ┣ 📜AuthApi.js
+┃ ┃ ┃ ┃ ┣ 📜AuthContextProvider.js
+┃ ┃ ┃ ┃ ┗ 📜AuthStorage.js
+┃ ┃ ┃ ┗ 📂domain
+┃ ┃ ┃   ┣ 📂Repositories
+┃ ┃ ┃   ┃ ┗ 📜AuthApiRepository.js
+┃ ┃ ┃   ┣ 📂datastructures
+┃ ┃ ┃   ┃ ┗ 📜AuthorizationResult.js
+┃ ┃ ┃   ┣ 📂entities
+┃ ┃ ┃   ┃ ┗ 📜AuthHolder.js
+┃ ┃ ┃   ┗ 📂usecases
+┃ ┃ ┃     ┣ 📜LoginUseCase.js
+┃ ┃ ┃     ┣ 📜LogoutUseCase.js
+┃ ┃ ┃     ┗ 📜SignupUseCase.js
+┃ ┃ ┗ 📂userProfile
+┃ ┃   ┣ 📂UI
+┃ ┃   ┃ ┣ 📜UserFormComponent.jsx
+┃ ┃   ┃ ┣ 📜UserFormViewModel.js
+┃ ┃   ┃ ┗ 📜UserProfileComponent.jsx
+┃ ┃   ┣ 📂data
+┃ ┃   ┃ ┣ 📜UserApi.js
+┃ ┃   ┃ ┣ 📜UserProfileContextProvider.js
+┃ ┃   ┃ ┗ 📜UserStorage.js
+┃ ┃   ┗ 📂domain
+┃ ┃     ┣ 📂Repositories
+┃ ┃     ┃ ┗ 📜UserApiRepository.js
+┃ ┃     ┣ 📂datastructures
+┃ ┃     ┃ ┗ 📜UserProfile.js
+┃ ┃     ┣ 📂entities
+┃ ┃     ┃ ┗ 📜userHolder.js
+┃ ┃     ┗ 📂usecases
+┃ ┃       ┣ 📜UpdateUserEmailUseCase.js
+┃ ┃       ┗ 📜UpdateUserProfileUseCase.js
+┃ ┣ 📂pages
+┃ ┃ ┗ 📜HomePage.jsx
+┃ ┣ 📂services
+┃ ┃ ┣ 📂contexts
+┃ ┃ ┃ ┗ 📜UseCasesProvider.js
+┃ ┃ ┣ 📂localStorage
+┃ ┃ ┃ ┗ 📜LocalStorageRepository.js
+┃ ┃ ┗ 📜firebase-config.js
+┃ ┣ 📂util
+┃ ┃ ┗ 📜FormValidation.js
+┃ ┣ 📜App.css
+┃ ┣ 📜App.js
+┃ ┣ 📜App.test.js
+┃ ┣ 📜index.css
+┃ ┣ 📜index.js
+┃ ┣ 📜logo.svg
+┃ ┣ 📜reportWebVitals.js
+┃ ┣ 📜settings.js
+┃ ┗ 📜setupTests.js
+┃
+┣ package-lock.json
+┣ package.json
+┣ .gitignore
+┣ .env
+┗ README.md
+```
